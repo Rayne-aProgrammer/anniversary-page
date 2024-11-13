@@ -5,45 +5,58 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Love Message</title>
     <style>
-        /* Make the background stay fixed */
         body {
             font-family: Arial, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+            background-color: #f0f0f0;
             margin: 0;
-            background: linear-gradient(135deg, #FF8A80, #FFDDC1);
-            color: #333;
-            text-align: center;
-            background-attachment: fixed; /* Ensures background stays fixed */
-            overflow: hidden; /* Hide overflow for smooth scroll container */
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
-        h1 {
-            color: #FF5A5F;
-            font-size: 2.5em;
-            margin-bottom: 0.3em;
-        }
+
         .message-container {
-            max-height: 60vh; /* Limits the container's height */
-            overflow-y: auto; /* Adds vertical scrolling if the content is too long */
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.9); /* Adds a semi-transparent background */
-            border-radius: 15px;
-            width: 80%;
-            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            background-color: #ffffff;
+            padding: 30px;
+            max-width: 90%;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            transition: background-color 0.3s ease;
         }
+
+        .message-container:hover {
+            background-color: #ffcccc; /* Hover background color on desktop */
+        }
+
+        .message-container.hovered {
+            background-color: #ffcccc; /* Click/tap background color on mobile */
+        }
+
         pre {
-            font-size: 1.3em;
-            color: #555;
-            line-height: 1.5em;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-size: 18px;
+            line-height: 1.5;
         }
+
+        /* Mobile-specific style */
+        @media (max-width: 768px) {
+            .message-container {
+                animation: fadeIn 0.5s ease-in-out;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
     </style>
 </head>
 <body>
-    <h1>This message is intended for My Love 💖</h1>
-    <div class="message-container">
+    <div class="message-container" onclick="toggleMessageEffect()">
         <pre>
             ဒီစာလေးက ကျွန်တော်ကောင်မလေးအတွက်ရေးထားတာပါ 
             honey လေးရေ ဒီစာလေးကို ဖတ်ပေးပါနော့် 
@@ -104,7 +117,16 @@
             အခုတော့ ကိုကို့ အကြောင်းကိုသိနေတဲ့ဘေဘီလေး ကိုကို့ ကိုသည်းခံပြီးချစ်ပေးပါဉီးနော် 
 
             အမြဲတမ်းချစ်မယ်နော် မိန်းမ 
+            
+            Love you baby. Thanks 🫶🏻😚
         </pre>
     </div>
+
+    <script>
+        function toggleMessageEffect() {
+            var container = document.querySelector('.message-container');
+            container.classList.toggle('hovered');
+        }
+    </script>
 </body>
 </html>
