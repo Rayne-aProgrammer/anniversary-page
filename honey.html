@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anniversary Date Check</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #FFDDC1, #FF8A80);
+            color: #333;
+        }
+        h1 {
+            color: #FF5A5F;
+            font-size: 2em;
+            margin-bottom: 0.5em;
+        }
+        p {
+            font-size: 1.2em;
+        }
+        input[type="date"] {
+            padding: 0.5em;
+            font-size: 1em;
+            margin-top: 1em;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            width: 200px;
+            text-align: center;
+        }
+        button {
+            margin-top: 1em;
+            padding: 0.6em 1.2em;
+            background-color: #FF5A5F;
+            border: none;
+            color: white;
+            font-size: 1em;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background-color: #FF3D47;
+        }
+        .message {
+            color: #333;
+            margin-top: 1em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Guess our Anniversary Date ❤️</h1>
+    <p>Enter the date in YYYY-MM-DD format:</p>
+
+    <input type="date" id="anniversaryDate">
+    <button onclick="checkDate()">Check Date</button>
+
+    <p class="message" id="message"></p>
+
+    <script>
+        function checkDate() {
+            const correctDate = "2024-09-25"; // Replace with your actual anniversary date
+            const enteredDate = document.getElementById("anniversaryDate").value;
+
+            if (enteredDate === correctDate) {
+                window.location.href = "love_message.html";
+            } else {
+                document.getElementById("message").textContent = "You add wrong anni date 🙄";
+            }
+        }
+    </script>
+</body>
+</html>
